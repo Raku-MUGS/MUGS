@@ -24,6 +24,7 @@ The design docs can be split into several categories:
 
 # Details
 
+* [Release Guide](release-guide.md) **DRAFT**
 * [Concurrency Design](concurrency.md)
 * [Lifecycles](lifecycles.md) **INCOMPLETE**
 * [Error-Handling Principles](error-handling.md) **WIP**

@@ -31,9 +31,9 @@ This list is about **80%** solid:
   * ✓ Simple contributing instructions written
   * ✓ Code style documented in coding-standards doc
   * ✓ All TODO docs cleaned up
+  * ✓ Draft release guide
   * … All design docs marked with implementation status
   * … All docs marked with latest review date
-  * Draft release guide
 * … Games
   * … Guessing
     * ✓ Snowman supported as default word-guessing game
