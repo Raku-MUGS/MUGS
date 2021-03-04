@@ -1,0 +1,113 @@
+// Reviewed 2021-03-03 by japhb
+
+digraph {
+    ranksep=0.4
+
+    subgraph players {
+        rank=same
+        "Player A"
+        "Player B"
+    }
+
+    "Player A" -> "General A UI"
+    "Player A" -> "Game 1A UI"
+    "Player A" -> "Game 2A UI"
+    "Player A" -> "Game 3A UI"
+
+    subgraph cluster_player_a_ui {
+        color="forestgreen"
+        fontcolor="forestgreen"
+        label="Player A Local App"
+
+        "General A UI"
+        "Game 1A UI" -> "Game 1A Client"
+        "Game 2A UI" -> "Game 2A Client"
+        "Game 3A UI" -> "Game 3A Client"
+        "Game 1A Client" -> "Client Session A" [style=dotted,color="forestgreen"]
+        "Game 2A Client" -> "Client Session A" [style=dotted,color="forestgreen"]
+        "Game 3A Client" -> "Client Session A" [style=dotted,color="forestgreen"]
+        "Client Session A" [color="forestgreen",fontcolor="forestgreen"]
+    }
+
+    "Player B" -> "General B UI"
+    "Player B" -> "Game 3B UI"
+    "Player B" -> "Game 4B UI"
+
+    subgraph cluster_player_b_ui {
+        color="dodgerblue"
+        fontcolor="dodgerblue"
+        label="Player B Local App"
+
+        "General B UI"
+        "Game 3B UI" -> "Game 3B Client"
+        "Game 4B UI" -> "Game 4B Client"
+        "Game 3B Client" -> "Client Session B" [style=dotted,color="dodgerblue"]
+        "Game 4B Client" -> "Client Session B" [style=dotted,color="dodgerblue"]
+        "Client Session B" [color="dodgerblue",fontcolor="dodgerblue"]
+    }
+
+    "Client Session A" -> "Server Session A" [dir=both,penwidth=3,color="forestgreen"]
+    "Client Session B" -> "Server Session B" [dir=both,penwidth=3,color="dodgerblue"]
+
+    subgraph cluster_game_server {
+        color="firebrick2"
+        fontcolor="firebrick2"
+        label="Remote Server"
+
+        subgraph sessions {
+            rank="same"
+            "Server Session A" [color="forestgreen",fontcolor="forestgreen"]
+            "Server Session B" [color="dodgerblue",fontcolor="dodgerblue"]
+        }
+
+        subgraph queues {
+            rank="same"
+
+            "Session A To-Client Queue" [shape=box,style=dashed,color="forestgreen",fontcolor="forestgreen"]
+            "Game 1 Input Queue" [shape=box,style=dashed]
+            "Game 2 Input Queue" [shape=box,style=dashed]
+            "Game 3 Input Queue" [shape=box,style=dashed]
+            "Game 4 Input Queue" [shape=box,style=dashed]
+            "Session B To-Client Queue" [shape=box,style=dashed,color="dodgerblue",fontcolor="dodgerblue"]
+        }
+
+        "Server Session A" -> "Game 1 Input Queue" [style=dashed]
+        "Server Session A" -> "Game 2 Input Queue" [style=dashed]
+        "Server Session A" -> "Game 3 Input Queue" [style=dashed]
+
+        "Server Session B" -> "Game 3 Input Queue" [style=dashed]
+        "Server Session B" -> "Game 4 Input Queue" [style=dashed]
+
+        "Game 1 Input Queue" -> "Game 1 Server" [style=dashed]
+        "Game 2 Input Queue" -> "Game 2 Server" [style=dashed]
+        "Game 3 Input Queue" -> "Game 3 Server" [style=dashed]
+        "Game 4 Input Queue" -> "Game 4 Server" [style=dashed]
+
+
+        "Game 1 Server" -> "Session A To-Client Queue" [style=dashed,color="forestgreen"]
+        "Game 2 Server" -> "Session A To-Client Queue" [style=dashed,color="forestgreen"]
+        "Game 3 Server" -> "Session A To-Client Queue" [style=dashed,color="forestgreen"]
+        "Game 3 Server" -> "Session B To-Client Queue" [style=dashed,color="dodgerblue"]
+        "Game 4 Server" -> "Session B To-Client Queue" [style=dashed,color="dodgerblue"]
+
+        "Session A To-Client Queue" -> "Server Session A" [style=dashed,color="forestgreen"]
+        "Session B To-Client Queue" -> "Server Session B" [style=dashed,color="dodgerblue"]
+    }
+
+    subgraph cluster_key {
+        label="Key"
+
+        "A" -> "B" [weight=10,label="Direct Call"]
+        "C" -> "D" [weight=10,style=dotted,label="Promise"]
+        "E" -> "F" [weight=10,style=dashed,label="Channel"]
+        "G" -> "H" [weight=10,dir=both,penwidth=3,label="WebSocket"]
+
+        "D" -> "Session A" [style="invis"]
+        "D" -> "Session B" [style="invis"]
+        "F" -> "Session A" [style="invis"]
+        "F" -> "Session B" [style="invis"]
+
+        "Session A" [color="forestgreen",fontcolor="forestgreen"]
+        "Session B" [color="dodgerblue",fontcolor="dodgerblue"]
+    }
+}
