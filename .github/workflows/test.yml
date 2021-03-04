@@ -14,8 +14,8 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macOS-latest
-          - windows-latest
+          # - macOS-latest
+          # - windows-latest
         raku-version:
           - 'latest'
     runs-on: ${{ matrix.os }}
@@ -24,9 +24,11 @@ jobs:
       - uses: Raku/setup-raku@v1
         with:
           raku-version: ${{ matrix.raku-version }}
+      - name: Update Zef Indices
+        run: zef update
       - name: Install Dependencies
         run: zef install --/test --test-depends --deps-only .
       - name: Install App::Prove6
         run: zef install --/test App::Prove6
       - name: Run Tests
-        run: prove6 -l t
+        run: prove6 -l -v t
