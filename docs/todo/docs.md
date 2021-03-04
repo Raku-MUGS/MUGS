@@ -11,7 +11,6 @@ When your brain is done with code, how about documenting something?  :-)
   * ... as a contributor
 * Bring diagrams up to date with latest code/designs
   * message-flow.dot
-  * queuing-architecture.dot
 * Bring design docs up to date with latest implementation
   * Mark sections that are NYI for clarity
   * Mark all DDs with latest review date
