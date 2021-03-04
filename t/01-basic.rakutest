@@ -1,6 +1,0 @@
-use Test;
-use MUGS;
-
-pass "replace me";
-
-done-testing;
