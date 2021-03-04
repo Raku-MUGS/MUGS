@@ -1,12 +1,17 @@
 {
+  "auth": "zef:japhb",
   "authors": [
     "Geoffrey Broadwell"
   ],
   "build-depends": [
   ],
   "depends": [
+    "MUGS::Core:ver<0.0.3>",
+    "MUGS::Games:ver<0.0.3>",
+    "MUGS::UI::CLI:ver<0.0.3>",
+    "MUGS::UI::WebSimple:ver<0.0.3>"
   ],
-  "description": "blah blah blah",
+  "description": "Multi-User Gaming Services - A Raku-based platform for game service development",
   "license": "Artistic-2.0",
   "name": "MUGS",
   "perl": "6.d",
@@ -15,10 +20,10 @@
   },
   "resources": [
   ],
-  "source-url": "",
+  "source-url": "https://github.com/Raku-MUGS/MUGS.git",
   "tags": [
   ],
   "test-depends": [
   ],
-  "version": "0.0.1"
+  "version": "0.0.3"
 }
