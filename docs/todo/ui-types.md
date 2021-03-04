@@ -1,5 +1,8 @@
 % UI Type TODOs
 
+*Reviewed 2021-03-03 by japhb*
+
+
 These todo items are for the creation or refinement of UI types.  Each of these
 usually uses a different UI toolkit or technology, but there are common concepts
 and user journeys that each of them should be able to support.

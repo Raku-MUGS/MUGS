@@ -1,5 +1,8 @@
 % Game Type TODOs
 
+*Reviewed 2021-03-03 by japhb*
+
+
 These todo items represent the creation or refinement of entire game types,
 such as puzzle games or twitch arcade games.
 

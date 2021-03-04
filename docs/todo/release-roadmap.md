@@ -1,5 +1,7 @@
 % FLOSS Release Roadmap
 
+*Reviewed 2021-03-03 by japhb*
+
 
 This doc puts forward a roadmap for major FLOSS releases leading up to an
 eventual MUGS 1.0 release.  Pre-public versions were all 0.0.x; the first
@@ -28,10 +30,10 @@ This list is about **80%** solid:
     * All README info tested on fresh install
   * ✓ Simple contributing instructions written
   * ✓ Code style documented in coding-standards doc
+  * ✓ All TODO docs cleaned up
+  * … All design docs marked with implementation status
+  * … All docs marked with latest review date
   * Draft release guide
-  * All design docs marked with implementation status
-  * All TODO docs cleaned up
-  * All docs marked with latest review date
 * … Games
   * … Guessing
     * ✓ Snowman supported as default word-guessing game

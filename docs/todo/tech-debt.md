@@ -1,5 +1,8 @@
 % Tech Debt TODOs
 
+*Reviewed 2021-03-03 by japhb*
+
+
 These todo items collect known tech debt waiting to be repaid.
 
 * AUTOMATED TEST ALL THE THINGS
