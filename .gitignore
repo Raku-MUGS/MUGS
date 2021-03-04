@@ -14,5 +14,7 @@ node_modules/
 *.iml
 
 # Generated files
+/*.html
+/docs/*.html
 /docs/*/*.html
 /docs/*/*.dot.svg
