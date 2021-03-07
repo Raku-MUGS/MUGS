@@ -47,8 +47,8 @@ This list is about **80%** solid:
   * ✓ Support for plugging UIs and games
   * ✓ Meta files checked and updated
   * ✓ MUGS-Core separated from MUGS-Games and MUGS-UI-*'s
+  * ✓ `cro run` support restored
   * … Docker support restored
-  * … `cro run` support restored
 * Testing
   * MUGS::Util::* fully tested
 * UIs
