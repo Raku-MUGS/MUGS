@@ -1,6 +1,6 @@
 % FLOSS Release Roadmap
 
-*Reviewed 2021-03-06 by japhb*
+*Reviewed 2021-03-07 by japhb*
 
 
 This doc puts forward a roadmap for major FLOSS releases leading up to an
@@ -18,9 +18,6 @@ try it out and give feedback other than "It's completely broken for me."
 
 This list is about **80%** solid:
 
-* Cleanups
-  * Simple XXXX addressed
-  * Larger XXXX filed as TODOs
 * ✓ Core functionality
   * ✓ Content tags
   * ✓ Genre tags
@@ -67,7 +64,9 @@ wider set of games and enough functionality to prove the value proposition.
 This list is about **60%** solid:
 
 * Cleanups
-  * XXXX review pass
+  * `git grep 'XXXX\|WIP\|NYI\|TODO'` in each repo
+    * Simple items addressed
+    * Larger items filed as TODOs
 * Core functionality
   * Achievements/Awards/Accomplishments
   * Game config menus
