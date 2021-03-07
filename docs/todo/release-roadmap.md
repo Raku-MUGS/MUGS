@@ -25,15 +25,14 @@ This list is about **80%** solid:
   * ✓ Content tags
   * ✓ Genre tags
   * ✓ Game descriptions
-* … Docs
+* ✓ Docs
   * ✓ READMEs rewritten (or pointing to a Getting Started doc)
-    * All README info tested on fresh install
   * ✓ Simple contributing instructions written
   * ✓ Code style documented in coding-standards doc
   * ✓ All TODO docs cleaned up
   * ✓ Draft release guide
-  * … All design docs marked with implementation status
-  * … All docs marked with latest review date
+  * ✓ All design docs marked with implementation status (unless complete)
+  * ✓ All docs marked with latest review date
 * … Games
   * … Guessing
     * ✓ Snowman supported as default word-guessing game
@@ -50,6 +49,7 @@ This list is about **80%** solid:
   * ✓ `cro run` support restored
   * … Docker support restored
 * Testing
+  * All README info tested on fresh install
   * MUGS::Util::* fully tested
 * UIs
   * All games exist in at least 2 UIs
@@ -79,6 +79,10 @@ This list is about **60%** solid:
     * offline messaging
     * server notices
 * Docs
+  * New docs
+    * Life of a Request
+    * Life of a UI
+    * Message Flow diagram
   * Release guide tested and tuned
   * Review pass
 * Error handling
