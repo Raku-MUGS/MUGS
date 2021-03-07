@@ -1,6 +1,6 @@
 % FLOSS Release Roadmap
 
-*Reviewed 2021-03-03 by japhb*
+*Reviewed 2021-03-06 by japhb*
 
 
 This doc puts forward a roadmap for major FLOSS releases leading up to an
@@ -47,7 +47,8 @@ This list is about **80%** solid:
   * ✓ Support for plugging UIs and games
   * ✓ Meta files checked and updated
   * ✓ MUGS-Core separated from MUGS-Games and MUGS-UI-*'s
-  * `cro run` and Docker support restored
+  * … Docker support restored
+  * … `cro run` support restored
 * Testing
   * MUGS::Util::* fully tested
 * UIs
