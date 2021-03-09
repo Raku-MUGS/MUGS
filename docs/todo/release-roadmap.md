@@ -1,6 +1,6 @@
 % FLOSS Release Roadmap
 
-*Reviewed 2021-03-07 by japhb*
+*Reviewed 2021-03-08 by japhb*
 
 
 This doc puts forward a roadmap for major FLOSS releases leading up to an
@@ -30,6 +30,7 @@ This list is about **80%** solid:
   * ✓ Draft release guide
   * ✓ All design docs marked with implementation status (unless complete)
   * ✓ All docs marked with latest review date
+  * ✓ Add Changes files for all repos
 * … Games
   * … Guessing
     * ✓ Snowman supported as default word-guessing game
@@ -70,10 +71,14 @@ This list is about **60%** solid:
 * Core functionality
   * Achievements/Awards/Accomplishments
   * Game config menus
+  * Teams
   * Invites
     * create account
     * join game
+    * join team
   * Messaging
+    * "nearby" messaging (e.g. say/shout in map-based games)
+    * team messaging
     * persona messaging
     * offline messaging
     * server notices
