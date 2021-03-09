@@ -1,6 +1,6 @@
 % Release Guide
 
-*Reviewed 2021-03-04 by japhb*
+*Reviewed 2021-03-08 by japhb*
 
 **NOTE: This Release Guide is in a DRAFT state, and has not yet been used to
         run a complete release cycle.**
@@ -25,10 +25,11 @@ For each repo:
 #. Run tests and fix if any broken
 #. Run performance tests and check for regressions
 #. Check that all GitHub "blocker" issues have been addressed
-#. Update Changes file
+#. Update Changes file and commit
 #. Check for uncommitted changes
 #. `fez checkbuild` and address any errors
 #. `git push` if needed
+#. `export NEXT_MUGS_VERSION=A.B.C`
 
 
 # Release
@@ -45,11 +46,13 @@ For each repo **in sequence**:
    #. Run `mi6 build` to transfer to README and META6
    #. Commit version changes
 #. Tag release
-   #. `git tag -a vA.B.C -m "Release A.B.C"`
+   #. `git tag -a v$NEXT_MUGS_VERSION -m "Release $NEXT_MUGS_VERSION"`
+   #. `git tag -a "<codename>" -m "Codename <codename>"`
+      if release has a codename
    #. `git push --tags`
 #. `zef install .`
 #. `fez upload`
-#. Create GitHub Release pointing to tag vA.B.C
+#. Create GitHub Release pointing to tag `v$NEXT_MUGS_VERSION`
 
 
 # Post-Release
