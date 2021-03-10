@@ -52,6 +52,24 @@ and user journeys that each of them should be able to support.
       * Region v. dialect v. script v. language
       * Preferred formats for lists, numbers, dates, etc.
 * Types
+  * CLI
+    * Expand Input::Buffer
+      * Add to list of supported edit actions
+      * Support multiline input
+      * Support arrow keys and other special keys
+      * Support tab completion
+      * Support context-dependent history
+      * Support history search
+      * Support help text (callback with context, buffer, and insert-pos)
+      * Support validation?
+      * Support RTL text
+      * Screen reader testing
+      * Port to TUI as well
+      * Tests
+        * MUGS::UI::Input::Buffer
+        * MUGS::UI::CLI::Input::Buffer
+        * MUGS::UI::CLI::Input
+      * Factor out of MUGS as a standalone module?
   * TUI -- WIP
     * Login and quit
     * User, persona, and character creation flows
