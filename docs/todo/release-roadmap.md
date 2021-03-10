@@ -1,6 +1,6 @@
 % FLOSS Release Roadmap
 
-*Reviewed 2021-03-08 by japhb*
+*Reviewed 2021-03-10 by japhb*
 
 
 This doc puts forward a roadmap for major FLOSS releases leading up to an
@@ -22,6 +22,8 @@ This list is about **80%** solid:
   * ✓ Content tags
   * ✓ Genre tags
   * ✓ Game descriptions
+  * ✓ Hooks for start-game and stop-game
+  * ✓ Start or stop game depending on participant count
 * ✓ Docs
   * ✓ READMEs rewritten (or pointing to a Getting Started doc)
   * ✓ Simple contributing instructions written
@@ -34,7 +36,7 @@ This list is about **80%** solid:
 * … Games
   * … Guessing
     * ✓ Snowman supported as default word-guessing game
-    * Multi-round Snowman
+    * ✓ Multi-round Snowman
     * Multi-player Snowman
 * ✓ Organizational
   * ✓ Create Raku-MUGS GitHub org
