@@ -1,0 +1,5 @@
+ARG mugs_version=latest
+FROM mugs:$mugs_version
+ARG mugs_version
+
+RUN mugs-admin add-test-identities
