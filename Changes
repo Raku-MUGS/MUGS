@@ -1,13 +1,11 @@
 Revision history for MUGS
 
-{{$NEXT}}
-
-0.0.4 *WIP*
+0.0.4  2021-03-10
   [Packaging]
   - Support Docker builds
 
   [Docs]
   - Several new or expanded docs
 
-0.0.3 2021-03-04
+0.0.3  2021-03-04
   - First public upload
