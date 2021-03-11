@@ -2,10 +2,10 @@ use v6.d;
 use Test;
 
 # Use matching versions for all released MUGS repos
-use MUGS::Core:ver<0.0.3>;
-use MUGS::Games:ver<0.0.3>;
-use MUGS::UI::CLI:ver<0.0.3>;
-use MUGS::UI::WebSimple:ver<0.0.3>;
+use MUGS::Core:ver<0.0.4>;
+use MUGS::Games:ver<0.0.4>;
+use MUGS::UI::CLI:ver<0.0.4>;
+use MUGS::UI::WebSimple:ver<0.0.4>;
 
 # Local modules
 use MUGS;
