@@ -41,13 +41,13 @@ This list is about **80%** solid:
 * ✓ Organizational
   * ✓ Create Raku-MUGS GitHub org
   * ✓ Create 'mugs' Freenode group and #mugs IRC channel
-* … Packaging
+* ✓ Packaging
   * ✓ File extensions changed to current Raku standards
   * ✓ Support for plugging UIs and games
   * ✓ Meta files checked and updated
   * ✓ MUGS-Core separated from MUGS-Games and MUGS-UI-*'s
   * ✓ `cro run` support restored
-  * … Docker support restored
+  * ✓ Docker support restored
 * Testing
   * All README info tested on fresh install
   * MUGS::Util::* fully tested
