@@ -1,6 +1,6 @@
 % Release Guide
 
-*Reviewed 2021-03-08 by japhb*
+*Reviewed 2021-03-10 by japhb*
 
 **NOTE: This Release Guide is in a DRAFT state, and has not yet been used to
         run a complete release cycle.**
@@ -25,10 +25,10 @@ For each repo:
 #. Run tests and fix if any broken
 #. Run performance tests and check for regressions
 #. Check that all GitHub "blocker" issues have been addressed
-#. Update Changes file and commit
 #. Check for uncommitted changes
 #. `fez checkbuild` and address any errors
 #. `git push` if needed
+#. Update Changes file with important changes and commit
 #. `export NEXT_MUGS_VERSION=A.B.C`
 
 
@@ -40,19 +40,20 @@ For each repo **in sequence**:
 #. Update dependencies
    #. Update `depends` versions in META6
    #. Update `t/00-use.rakutest` for versioned prereqs and rerun tests
-   #. Commit dependency changes
+   #. `git commit -m "Release prep: Update versioned dependencies" META6.json t/00-use.rakutest`
 #. Update version
    #. Update base module version
-   #. Run `mi6 build` to transfer to README and META6
-   #. Commit version changes
+   #. Run `mi6 build` to transfer to META6
+   #. Update version and date in Changes
+   #. `git commit -m "Release prep: Update version to $NEXT_MUGS_VERSION" Changes META6.json lib/MUGS/...`
 #. Tag release
    #. `git tag -a v$NEXT_MUGS_VERSION -m "Release $NEXT_MUGS_VERSION"`
    #. `git tag -a "<codename>" -m "Codename <codename>"`
       if release has a codename
+   #. `git push`
    #. `git push --tags`
 #. `zef install .`
 #. `fez upload`
-#. Create GitHub Release pointing to tag `v$NEXT_MUGS_VERSION`
 
 
 # Post-Release
