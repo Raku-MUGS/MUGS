@@ -52,8 +52,8 @@ This list is about **80%** solid:
   * All README info tested on fresh install
   * MUGS::Util::* fully tested
 * … UIs
-  * All games exist in at least 2 UIs
-  * CLI and WebSimple UIs approximately equivalent
+  * ✓ All games exist in at least 2 UIs
+  * … CLI and WebSimple UIs approximately equivalent
   * … Turn-based games tested with a screen reader
     * ✓ in CLI
     * in web browser
