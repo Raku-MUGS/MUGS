@@ -39,7 +39,8 @@ For each repo **in sequence**:
 #. Run tests and fix if any broken
 #. Update dependencies
    #. Update `depends` versions in META6
-   #. Update `t/00-use.rakutest` for versioned prereqs and rerun tests
+   #. Update `t/00-use.rakutest` for versioned prereqs
+   #. Rerun tests to check prereq update didn't break anything
    #. `git commit -m "Release prep: Update versioned dependencies" META6.json t/00-use.rakutest`
 #. Update version
    #. Update base module version
