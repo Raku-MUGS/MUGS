@@ -49,9 +49,9 @@ This list is about **80%** solid:
   * ✓ MUGS-Core separated from MUGS-Games and MUGS-UI-*'s
   * ✓ `cro run` support restored
   * ✓ Docker support restored
-* Testing
-  * All README info tested on fresh install
-  * MUGS::Util::* fully tested
+* … Testing
+  * ✓ All README info tested on fresh install
+  * … MUGS::Util::* fully tested
 * … UIs
   * ✓ All games exist in at least 2 UIs
   * … CLI and WebSimple UIs approximately equivalent
