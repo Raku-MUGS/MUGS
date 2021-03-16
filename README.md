@@ -11,7 +11,7 @@ SYNOPSIS
     ### INITIAL SETUP
 
     # Install MUGS (expect precompilation to take a while)
-    zef install MUGS
+    zef install --exclude="pq:ver<5>:from<native>" MUGS
 
     # Create a long-lived (on disk) data set and identity universe
     mugs-admin create-universe [<universe-name>]  # Defaults to "default"
