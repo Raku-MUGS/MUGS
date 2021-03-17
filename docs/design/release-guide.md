@@ -1,6 +1,6 @@
 % Release Guide
 
-*Reviewed 2021-03-16 by japhb*
+*Reviewed 2021-03-17 by japhb*
 
 **NOTE: This Release Guide is in a DRAFT state, and has not yet been used to
         run a complete release cycle.**
@@ -21,22 +21,22 @@
 
 For each repo:
 
-#. Search for and address or file as an issue any XXXX, WIP, NYI, TODO, etc. comments
-#. Run tests and fix if any broken
-#. Run performance tests and check for regressions
-#. Check that all GitHub "blocker" issues have been addressed
-#. Check for uncommitted changes
-#. `fez checkbuild` and address any errors
-#. `git push` if needed
+#. Look for trouble:
+   #. Search for and address or file as an issue any XXXX, WIP, NYI, TODO, etc. comments
+   #. Check that all GitHub "blocker" issues have been addressed
+   #. Run performance tests and check for regressions
+   #. Check for uncommitted changes
 #. Update Changes file with important changes and commit
 #. `export NEXT_MUGS_VERSION=A.B.C`
+#. Until clean, repeat:
+   #. `mugs-release check --version=$NEXT_MUGS_VERSION`
+   #. Fix any problems found and commit
 
 
 # Release
 
 For each repo **in sequence**:
 
-#. Run tests and fix if any broken
 #. Update dependencies
    #. Update `depends` versions in META6
    #. Update `t/00-use.rakutest` for versioned prereqs
@@ -47,7 +47,8 @@ For each repo **in sequence**:
    #. Run `mi6 build` to transfer to META6
    #. Update version and date in Changes
    #. `git commit -m "Release prep: Update version to $NEXT_MUGS_VERSION" Changes META6.json lib/MUGS/...`
-#. Tag, push, and upload release
+#. Final check; then tag, push, and upload release
+   #. `mugs-release check --version=$NEXT_MUGS_VERSION`
    #. `mugs-release --version=$NEXT_MUGS_VERSION --/codename`
       (or `--codename="Codename"` if release has a codename)
 
