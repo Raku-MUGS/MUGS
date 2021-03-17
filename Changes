@@ -22,12 +22,14 @@ Revision history for MUGS
   [UIs]
   - All current games are now supported in both CLI and WebSimple UIs
 
+
 0.0.4  2021-03-10
   [Packaging]
   - Support Docker builds
 
   [Docs]
   - Several new or expanded docs
+
 
 0.0.3  2021-03-04
   - First public upload
