@@ -1,5 +1,11 @@
 Revision history for MUGS
 
+0.0.7  *WIP*
+  [Docs]
+  - Roadmap: make release automation a 0.1 todo (already in progress)
+  - Release guide: update for more mugs-release improvements
+
+
 0.0.6  2021-03-16
   [Bug fixes]
   - Add native pq exclusion in README SYNOPSIS
