@@ -1,6 +1,6 @@
 % Release Guide
 
-*Reviewed 2021-03-10 by japhb*
+*Reviewed 2021-03-16 by japhb*
 
 **NOTE: This Release Guide is in a DRAFT state, and has not yet been used to
         run a complete release cycle.**
@@ -47,14 +47,9 @@ For each repo **in sequence**:
    #. Run `mi6 build` to transfer to META6
    #. Update version and date in Changes
    #. `git commit -m "Release prep: Update version to $NEXT_MUGS_VERSION" Changes META6.json lib/MUGS/...`
-#. Tag release
-   #. `git tag -a v$NEXT_MUGS_VERSION -m "Release $NEXT_MUGS_VERSION"`
-   #. `git tag -a "<codename>" -m "Codename <codename>"`
-      if release has a codename
-   #. `git push`
-   #. `git push --tags`
-#. `zef install .`
-#. `fez upload`
+#. Tag, push, and upload release
+   #. `mugs-release --version=$NEXT_MUGS_VERSION --/codename`
+      (or `--codename="Codename"` if release has a codename)
 
 
 # Post-Release
