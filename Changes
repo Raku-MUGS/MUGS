@@ -2,7 +2,10 @@ Revision history for MUGS
 
 0.0.7  *WIP*
   [Docs]
-  - Roadmap: make release automation a 0.1 todo (already in progress)
+  - Roadmap
+    * Make release automation of easy bits a 0.1 todo (already done)
+    * Make remaining release automation a 0.2 todo
+    * Make Docker image upload a 0.2 todo as well
   - Release guide: update for more mugs-release improvements
 
 
