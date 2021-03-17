@@ -1,6 +1,6 @@
 % FLOSS Release Roadmap
 
-*Reviewed 2021-03-15 by japhb*
+*Reviewed 2021-03-16 by japhb*
 
 
 This doc puts forward a roadmap for major FLOSS releases leading up to an
@@ -41,13 +41,14 @@ This list is about **80%** solid:
 * ✓ Organizational
   * ✓ Create Raku-MUGS GitHub org
   * ✓ Create 'mugs' Freenode group and #mugs IRC channel
-* ✓ Packaging
+* … Packaging
   * ✓ File extensions changed to current Raku standards
   * ✓ Support for plugging UIs and games
   * ✓ Meta files checked and updated
   * ✓ MUGS-Core separated from MUGS-Games and MUGS-UI-*'s
   * ✓ `cro run` support restored
   * ✓ Docker support restored
+  * … Automate release process
 * ✓ Testing
   * ✓ All README info tested on fresh install
   * ✓ MUGS::Util::* fully tested
