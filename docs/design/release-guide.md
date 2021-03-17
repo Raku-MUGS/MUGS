@@ -10,7 +10,7 @@
 
 #. For every genre and game:
    #. Test Client/Server pairs
-   #. Check Accessibility Technology support
+   #. Check Assistive Technology support
    #. Check that each is supported in at least 2 UIs
 #. Review all docs, update any bitrotted sections, and update review mark at top
 #. Check that all [Release Roadmap](release-roadmap.md) todo items for this
