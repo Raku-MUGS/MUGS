@@ -34,11 +34,10 @@ This list is about **80%** solid:
   * ✓ All design docs marked with implementation status (unless complete)
   * ✓ All docs marked with latest review date
   * ✓ Add Changes files for all repos
-* … Games
-  * … Guessing
+* ✓ Games
+  * ✓ Guessing
     * ✓ Snowman supported as default word-guessing game
     * ✓ Multi-round Snowman
-    * Multi-player Snowman
 * ✓ Organizational
   * ✓ Create Raku-MUGS GitHub org
   * ✓ Create 'mugs' Freenode group and #mugs IRC channel
