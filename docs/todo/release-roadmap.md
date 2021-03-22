@@ -62,7 +62,7 @@ This list is **COMPLETE!**
   * ✓ Game selection interfaces show genre tags and description
 
 
-# 0.2 Prototype
+# 0.2 Prototype *(Current WIP)*
 
 The first major release after the Proof of Concept will need to support a much
 wider set of games and enough functionality to prove the value proposition.
