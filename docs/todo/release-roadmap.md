@@ -1,6 +1,6 @@
 % FLOSS Release Roadmap
 
-*Reviewed 2021-03-16 by japhb*
+*Reviewed 2021-03-21 by japhb*
 
 
 This doc puts forward a roadmap for major FLOSS releases leading up to an
@@ -17,7 +17,7 @@ number needed before the initial proof-of-concept FLOSS release.  Most of
 these are just getting things cleaned up enough that people can reasonably
 try it out and give feedback other than "It's completely broken for me."
 
-This list is about **80%** solid:
+This list is **COMPLETE!**
 
 * ✓ Core functionality
   * ✓ Content tags
@@ -52,12 +52,12 @@ This list is about **80%** solid:
 * ✓ Testing
   * ✓ All README info tested on fresh install
   * ✓ MUGS::Util::* fully tested
-* … UIs
+* ✓ UIs
   * ✓ All games exist in at least 2 UIs
-  * … CLI and WebSimple UIs approximately equivalent
-  * … Turn-based games tested with a screen reader
+  * ✓ CLI and WebSimple UIs approximately equivalent
+  * ✓ Turn-based games tested with a screen reader
     * ✓ in CLI
-    * in web browser
+    * ✓ in web browser
 * ✓ UX
   * ✓ Game selection interfaces show genre tags and description
 
