@@ -6,10 +6,10 @@
   "build-depends": [
   ],
   "depends": [
-    "MUGS::Core:ver<0.0.6>",
-    "MUGS::Games:ver<0.0.6>",
-    "MUGS::UI::CLI:ver<0.0.6>",
-    "MUGS::UI::WebSimple:ver<0.0.6>"
+    "MUGS::Core:ver<0.1.0>",
+    "MUGS::Games:ver<0.1.0>",
+    "MUGS::UI::CLI:ver<0.1.0>",
+    "MUGS::UI::WebSimple:ver<0.1.0>"
   ],
   "description": "Multi-User Gaming Services - A Raku-based platform for game service development",
   "license": "Artistic-2.0",
