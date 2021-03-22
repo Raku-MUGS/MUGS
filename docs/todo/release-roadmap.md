@@ -124,8 +124,8 @@ This list is about **60%** solid:
 * Testing
   * Core roles fully tested
 * UIs
-  * TUI added
-  * TUI supports login and game choice
+  * TUI and/or GTK added
+  * Added UIs support login and game choice
   * All games tested on at least one UI working with multiple assistive technologies
 * UX
   * List of active games shows which are available to join
