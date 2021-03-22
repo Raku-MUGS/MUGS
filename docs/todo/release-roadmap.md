@@ -6,11 +6,11 @@
 This doc puts forward a roadmap for major FLOSS releases leading up to an
 eventual MUGS 1.0 release.  Pre-public versions were all early 0.0.x; MUGS was
 initially announced publicly at 0.0.5.  The first public roadmapped release
-will be 0.1.x, the "Proof of Concept" series.  Further roadmapped releases will
+was 0.1.0, the "Proof of Concept" release.  Further roadmapped releases will
 follow when their respective key deliverables are completed.
 
 
-# 0.1 Proof of Concept (CURRENT WIP)
+# 0.1 Proof of Concept *([released](../announce/v0.1.0.md) 2021-03-21)*
 
 There are a great many TODO tasks already identified for MUGS, but a smaller
 number needed before the initial proof-of-concept FLOSS release.  Most of
@@ -64,7 +64,7 @@ This list is **COMPLETE!**
 
 # 0.2 Prototype
 
-The first major release after the 0.1.x series will need to support a much
+The first major release after the Proof of Concept will need to support a much
 wider set of games and enough functionality to prove the value proposition.
 
 This list is about **60%** solid:
