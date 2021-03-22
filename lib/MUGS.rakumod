@@ -1,4 +1,4 @@
-unit class MUGS:auth<zef:japhb>:ver<0.0.6>;
+unit class MUGS:auth<zef:japhb>:ver<0.1.0>;
 
 
 =begin pod
