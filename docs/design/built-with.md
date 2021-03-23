@@ -47,6 +47,8 @@ more about each of these.
   * [Terminal::ANSIColor](https://github.com/tadzik/Terminal-ANSIColor)
   * [Term::termios](https://github.com/krunen/term-termios)
   * [Text::MiscUtils](https://github.com/japhb/Text-MiscUtils)
+* TUI
+  * [Terminal::Print](https://github.com/ab5tract/Terminal-Print)
 * WebSimple
   * [Cro::HTTP](https://github.com/croservices/cro-http)
   * [Cro::WebApp](https://github.com/croservices/cro-webapp)
