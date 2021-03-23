@@ -123,9 +123,11 @@ This list is about **60%** solid:
   * Protocol details: protocol version, sequence numbers, security, etc.
 * Testing
   * Core roles fully tested
-* UIs
-  * TUI and/or GTK added
-  * Added UIs support login and game choice
+* … UIs
+  * … At least one new UI added
+    * … TUI
+    * GTK?
+  * Added UI(s) support login and game choice
   * All games tested on at least one UI working with multiple assistive technologies
 * UX
   * List of active games shows which are available to join
