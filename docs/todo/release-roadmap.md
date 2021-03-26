@@ -111,11 +111,15 @@ This list is about **60%** solid:
 * Games
   * Arcade
     * Two multi-player 2D arcade games
-  * Board
-    * Draughts (Checkers)
-  * Card
-    * A shedding-type game
-    * Poker of some form
+  * BoardGame
+    * Tic-Tac-Toe
+    * Checkerboard
+      * Draughts
+        * EnglishDraughts (AKA American Checkers)
+  * CardGame
+    * Standard52CardDeck
+      * A shedding-type game
+      * Poker of some form
   * Guessing
     * FourDigits
   * Interactive Fiction
@@ -165,10 +169,15 @@ This list is about **40%** solid:
   * Arcade
     * Side-scroller shmup
     * Side-scroller platformer
-  * Board
-    * Chess
-    * Go
-  * Card
+  * BoardGame
+    * Checkerboard
+      * Chess
+    * Goban
+      * Go
+    * k-in-a-row
+      * Tic-tac-toe
+      * Gomoku
+  * CardGame
     * Klondike Solitaire
   * Roguelike or CRPG
 * I18N
