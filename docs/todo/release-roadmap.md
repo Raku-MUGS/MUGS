@@ -103,6 +103,7 @@ This list is about **60%** solid:
   * Release guide tested and tuned
   * Review pass
 * Error handling
+  * All bare die converted to X::MUGS::Request::AdHoc or other appropriate X::MUGS
   * All ad hoc exceptions converted to proper X::MUGS subtypes
   * Sad paths explored
   * Client and Server independent of each other's failures
