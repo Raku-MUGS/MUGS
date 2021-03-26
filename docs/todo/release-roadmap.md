@@ -73,7 +73,15 @@ This list is about **60%** solid:
   * `git grep 'XXXX\|WIP\|NYI\|TODO'` in each repo
     * Simple items addressed
     * Larger items filed as TODOs
-* Core functionality
+* … Core functionality
+  * … DB schema management
+    * ✓ Track schema version and state in `mugs_schema_state` table
+    * ✓ Support schema update in `mugs-admin`
+    * … Manage schema bootstrap, repair, and update in storage driver
+  * … De-confused identity names
+    * ✓ All identities in a universe share the same (deconfused) namespace
+    * ✓ Names folded by spacing, case, marks, and compatibility
+    * Names confusable-folded
   * Achievements/Awards/Accomplishments
   * Game config menus
   * Teams
