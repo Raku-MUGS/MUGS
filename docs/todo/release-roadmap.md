@@ -81,6 +81,7 @@ This list is about **60%** solid:
   * … De-confused identity names
     * ✓ All identities in a universe share the same (deconfused) namespace
     * ✓ Names folded by spacing, case, marks, and compatibility
+    * ✓ Names limited to PRECIS-compatible codepoints and 63 characters max
     * Names confusable-folded
   * Achievements/Awards/Accomplishments
   * Game config menus
