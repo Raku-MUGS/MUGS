@@ -1,6 +1,6 @@
 % MUGS Design Documents
 
-*Reviewed 2021-03-27 by japhb*
+*Reviewed 2021-03-28 by japhb*
 
 **NOTE: If you would like to contribute to MUGS, please read and follow the
 [Coding Standards](coding-standards.md) before sending your pull request.**
@@ -43,4 +43,5 @@ The design docs can be split into several categories:
 * [Caches and Invalidation](caches.md) **NYI**
 * [Turns, Rounds, Matches](turns.md) **NYI**
 * [Preventing an Identity Apocalypse](identity-apocalypse.md) **PARTIALLY SPECULATIVE**
+* [Messaging and Communication](communication.md) **PROBLEM STATEMENT**
 * [Dial-A-Game](dial-a-game.md) **ASPIRATIONAL**
