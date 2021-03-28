@@ -1,8 +1,9 @@
 % Preventing an Identity Apocalypse
 
-*Reviewed 2021-03-03 by japhb*
+*Reviewed 2021-03-27 by japhb*
 
-**NOTE: THIS IS A SPECULATIVE RUMINATION, NOT AN ACTIVE DESIGN**
+**NOTE: ONLY THE FIRST SECTION HAS BEEN IMPLEMENTED.  THE REMAINING SECTIONS
+ARE A SPECULATIVE RUMINATION, NOT AN ACTIVE DESIGN.**
 
 
 Identities are a limited resource for two major reasons:
@@ -28,9 +29,14 @@ player gets an "unavailable identity" error.
 
 The de-confusion mapping should have multiple stages, including at least:
 
+* PRECIS codepoint filtering
+* Space collapsing
 * Case and mark mapping
 * NFKC compatibility mapping
 * Unicode confusable mapping
+
+**STATUS:** All but the last (Unicode confusable mapping) have been implemented
+in MUGS-Core as of version 0.1.1.
 
 
 # Preventing Abuse

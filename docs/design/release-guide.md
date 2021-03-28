@@ -1,9 +1,9 @@
 % Release Guide
 
-*Reviewed 2021-03-17 by japhb*
+*Reviewed 2021-03-27 by japhb*
 
-**NOTE: This Release Guide is in a DRAFT state, and has not yet been used to
-        run a complete release cycle.**
+**NOTE: This Release Guide represents current partially-automated state as of
+        version 0.1.0; further automation is planned in future releases.**
 
 
 # Major Releases

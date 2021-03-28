@@ -1,6 +1,6 @@
 % Turns, Rounds, Matches
 
-*Reviewed 2021-03-07 by japhb*
+*Reviewed 2021-03-27 by japhb*
 
 **NOTE: Most of the levels of this hierarchy are NYI, and the suggested naming
         convention should be matched up with more varied precedents to confirm
@@ -67,7 +67,7 @@ Round
   : Turns for each player in the game (even if that turn is a pass or skip)
     before it becomes the start player's turn again *and* in process multi-turn
     plays have completed.  Trick games may consider a round to be equivalent to
-    trick, with start player often changing each round depending on which
+    a trick, with start player often changing each round depending on which
     player won the last trick.  Shedding games and betting games may go around
     the table multiple times before the round logically completes.
 

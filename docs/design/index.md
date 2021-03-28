@@ -1,6 +1,6 @@
 % MUGS Design Documents
 
-*Reviewed 2021-03-07 by japhb*
+*Reviewed 2021-03-27 by japhb*
 
 **NOTE: If you would like to contribute to MUGS, please read and follow the
 [Coding Standards](coding-standards.md) before sending your pull request.**
@@ -24,7 +24,7 @@ The design docs can be split into several categories:
 
 # Details
 
-* [Release Guide](release-guide.md) **DRAFT**
+* [Release Guide](release-guide.md)
 * [Concurrency Design](concurrency.md)
 * [Lifecycles](lifecycles.md) **INCOMPLETE**
 * [Error-Handling Principles](error-handling.md) **WIP**
@@ -42,5 +42,5 @@ The design docs can be split into several categories:
 * [Sessions and Identities](sessions.md) **WIP**
 * [Caches and Invalidation](caches.md) **NYI**
 * [Turns, Rounds, Matches](turns.md) **NYI**
-* [Preventing an Identity Apocalypse](identity-apocalypse.md) **SPECULATIVE**
+* [Preventing an Identity Apocalypse](identity-apocalypse.md) **PARTIALLY SPECULATIVE**
 * [Dial-A-Game](dial-a-game.md) **ASPIRATIONAL**
