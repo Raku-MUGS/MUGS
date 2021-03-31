@@ -89,6 +89,7 @@ This list is about **60%** solid:
     * create account
     * join game
     * join team
+    * bot invites
   * Messaging
     * "nearby" messaging (e.g. say/shout in map-based games)
     * team messaging
