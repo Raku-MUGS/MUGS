@@ -74,15 +74,14 @@ This list is about **60%** solid:
     * Simple items addressed
     * Larger items filed as TODOs
 * … Core functionality
-  * … DB schema management
+  * ✓ DB schema management
     * ✓ Track schema version and state in `mugs_schema_state` table
     * ✓ Support schema update in `mugs-admin`
-    * … Manage schema bootstrap, repair, and update in storage driver
-  * … De-confused identity names
+    * ✓ Draft of schema bootstrap, repair, and update in storage driver
+  * ✓ Draft of deconfused identity names
     * ✓ All identities in a universe share the same (deconfused) namespace
     * ✓ Names folded by spacing, case, marks, and compatibility
     * ✓ Names limited to PRECIS-compatible codepoints and 63 characters max
-    * Names confusable-folded
   * Achievements/Awards/Accomplishments
   * Game config menus
   * Teams
@@ -158,6 +157,11 @@ This list is about **40%** solid:
 * Cleanups
   * XXXX review pass
 * Core functionality
+  * DB management
+    * Improved schema bootstrap, repair, and update
+    * Data migration management
+    * Data backup/restore
+  * Names Unicode confusable-folded
   * Skill ratings
   * Skill matching?
 * Docs
