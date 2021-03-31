@@ -140,6 +140,7 @@ This list is about **60%** solid:
   * … At least one new UI added
     * … TUI
     * GTK?
+    * Pop?
   * Added UI(s) support login and game choice
   * All games tested on at least one UI working with multiple assistive technologies
 * UX
