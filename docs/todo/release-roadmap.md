@@ -95,8 +95,9 @@ This list is about **60%** solid:
     * persona messaging
     * offline messaging
     * server notices
-* Docs
-  * New docs
+* … Docs
+  * … New docs
+    * … Game Classes
     * Life of a Request
     * Life of a UI
     * Message Flow diagram
