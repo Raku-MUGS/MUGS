@@ -1,13 +1,14 @@
 % FLOSS Release Roadmap
 
-*Reviewed 2021-03-21 by japhb*
+*Reviewed 2021-03-29 by japhb*
 
 
 This doc puts forward a roadmap for major FLOSS releases leading up to an
 eventual MUGS 1.0 release.  Pre-public versions were all early 0.0.x; MUGS was
-initially announced publicly at 0.0.5.  The first public roadmapped release
-was 0.1.0, the "Proof of Concept" release.  Further roadmapped releases will
-follow when their respective key deliverables are completed.
+initially announced publicly at 0.0.5.  The first public roadmapped release was
+0.1.0, the "Proof of Concept" release.  Work on 0.2.0 is well under way, and
+further roadmapped releases will follow when their respective key deliverables
+are completed.
 
 
 # 0.1 Proof of Concept *([released](../announce/v0.1.0.md) 2021-03-21)*
