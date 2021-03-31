@@ -108,16 +108,19 @@ This list is about **60%** solid:
   * Sad paths explored
   * Client and Server independent of each other's failures
   * Separate error messages for debug logs and user-visible messages
-* Games
-  * Arcade
-    * Two multi-player 2D arcade games
-  * BoardGame
-    * Tic-Tac-Toe
-    * Checkerboard
-      * Draughts
-        * EnglishDraughts (AKA American Checkers)
-  * CardGame
-    * Standard52CardDeck
+* … Games
+  * Action
+    * Arcade2D
+      * Two multi-player 2D arcade games
+  * … BoardGame
+    * … RectangularBoard
+      * … Checkerboard
+        * Draughts
+          * EnglishDraughts (AKA American Checkers)
+      * … MNKGame
+        * … TicTacToe
+  * … CardGame
+    * … Standard52CardDeck
       * A shedding-type game
       * Poker of some form
   * Guessing
@@ -180,8 +183,7 @@ This list is about **40%** solid:
       * Chess
     * Goban
       * Go
-    * k-in-a-row
-      * Tic-tac-toe
+    * MNKGame
       * Gomoku
   * CardGame
     * Klondike Solitaire
