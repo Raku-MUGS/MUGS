@@ -90,7 +90,6 @@ This list is about **60%** solid:
     * create account
     * join game
     * join team
-    * bot invites
   * Messaging
     * "nearby" messaging (e.g. say/shout in map-based games)
     * team messaging
@@ -105,7 +104,8 @@ This list is about **60%** solid:
     * Message Flow diagram
   * Release guide tested and tuned
   * Review pass
-* Error handling
+* … Error handling
+  * … Error testing "game"
   * All bare die converted to X::MUGS::Request::AdHoc or other appropriate X::MUGS
   * All ad hoc exceptions converted to proper X::MUGS subtypes
   * Sad paths explored
@@ -169,8 +169,15 @@ This list is about **40%** solid:
     * Data migration management
     * Data backup/restore
   * Names Unicode confusable-folded
-  * Skill ratings
-  * Skill matching?
+  * Challenge level
+    * Skill ratings
+    * Skill matching?
+  * Bots
+    * Server-side
+    * Client-side
+    * Gateway
+    * Bot invites
+    * Bot autofill
 * Docs
   * Review pass
 * Error handling
