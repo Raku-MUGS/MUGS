@@ -102,6 +102,7 @@ This list is about **60%** solid:
     * Life of a Request
     * Life of a UI
     * Message Flow diagram
+    * Game class method override diagram(s?)
   * Release guide tested and tuned
   * Review pass
 * … Error handling
@@ -117,11 +118,11 @@ This list is about **60%** solid:
       * Two multi-player 2D arcade games
   * … BoardGame
     * … RectangularBoard
+      * ✓ MNKGame
+        * ✓ TicTacToe
       * … Checkerboard
         * Draughts
           * EnglishDraughts (AKA American Checkers)
-      * … MNKGame
-        * … TicTacToe
   * … CardGame
     * … Standard52CardDeck
       * A shedding-type game
@@ -149,8 +150,8 @@ This list is about **60%** solid:
     * Pop?
   * Added UI(s) support login and game choice
   * All games tested on at least one UI working with multiple assistive technologies
-* UX
-  * List of active games shows which are available to join
+* … UX
+  * … List of active games shows which are available to join
 
 
 # 0.3 Alpha 1
