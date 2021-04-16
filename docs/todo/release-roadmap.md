@@ -83,6 +83,11 @@ This list is about **60%** solid:
     * ✓ All identities in a universe share the same (deconfused) namespace
     * ✓ Names folded by spacing, case, marks, and compatibility
     * ✓ Names limited to PRECIS-compatible codepoints and 63 characters max
+  * … Support for more multiplayer game play
+    * ✓ `GameEvent`s and `game-update`s pushed to game participants
+    * ✓ Game startup push messages tracked and handled
+    * ✓ Allow override of game start and stop conditions
+    * … Support both PvP and co-op play, and per-participant `winloss` status
   * Achievements/Awards/Accomplishments
   * Game config menus
   * Teams
@@ -106,6 +111,8 @@ This list is about **60%** solid:
   * Release guide tested and tuned
   * Review pass
 * … Error handling
+  * ✓ Include client username in server connection debug info
+  * ✓ Refactor/unify behavior of turn validation, submission, and error handling
   * … Error testing "game"
   * All bare die converted to X::MUGS::Request::AdHoc or other appropriate X::MUGS
   * All ad hoc exceptions converted to proper X::MUGS subtypes
@@ -116,21 +123,22 @@ This list is about **60%** solid:
   * Action
     * Arcade2D
       * Two multi-player 2D arcade games
-  * … BoardGame
-    * … RectangularBoard
-      * ✓ MNKGame
-        * ✓ TicTacToe
-      * … Checkerboard
-        * Draughts
-          * EnglishDraughts (AKA American Checkers)
-  * … CardGame
-    * … Standard52CardDeck
-      * A shedding-type game
-      * Poker of some form
-  * Guessing
-    * FourDigits
-  * Interactive Fiction
-    * At least one basic IF playable
+  * … TurnBased
+    * … BoardGame
+      * … RectangularBoard
+        * ✓ MNKGame
+          * ✓ TicTacToe
+        * … Checkerboard
+          * Draughts
+            * EnglishDraughts (AKA American Checkers)
+    * … CardGame
+      * … Standard52CardDeck
+        * A shedding-type game
+        * Poker of some form
+    * Guessing
+      * FourDigits
+    * Interactive Fiction
+      * At least one basic IF playable
   * Social
     * Chat Room
 * Packaging
@@ -144,6 +152,12 @@ This list is about **60%** solid:
 * Testing
   * Core roles fully tested
 * … UIs
+  * … CLI improvements
+    * ✓ Show active game list and allow joining games started by other players
+    * ✓ Simplify `MAIN` and allow users to specify arbitrary game-type
+    * ✓ Handle expanded server push and game event semantics
+    * … Support more Readline-style bindings in input module
+    * … Cleanups and refactoring
   * … At least one new UI added
     * … TUI
     * GTK?
