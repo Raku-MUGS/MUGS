@@ -1,9 +1,9 @@
 % Release Guide
 
-*Reviewed 2021-03-27 by japhb*
+*Reviewed 2021-04-15 by japhb*
 
 **NOTE: This Release Guide represents current partially-automated state as of
-        version 0.1.0; further automation is planned in future releases.**
+        version 0.1.1; further automation is planned in future releases.**
 
 
 # Major Releases
@@ -27,6 +27,7 @@ For each repo:
    #. Run performance tests and check for regressions
    #. Check for uncommitted changes
 #. Update Changes file with important changes and commit
+#. Update Changes with next version and current date
 #. `export NEXT_MUGS_VERSION=A.B.C`
 #. Until clean, repeat:
    #. `mugs-release check --version=$NEXT_MUGS_VERSION`
@@ -45,7 +46,6 @@ For each repo **in sequence**:
 #. Update version
    #. Update base module version
    #. Run `mi6 build` to transfer to META6
-   #. Update version and date in Changes
    #. `git commit -m "Release prep: Update version to $NEXT_MUGS_VERSION" Changes META6.json lib/MUGS/...`
 #. Final check; then tag, push, and upload release
    #. `mugs-release check --version=$NEXT_MUGS_VERSION`

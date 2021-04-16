@@ -1,6 +1,6 @@
 % FLOSS Release Roadmap
 
-*Reviewed 2021-03-29 by japhb*
+*Reviewed 2021-04-15 by japhb*
 
 
 This doc puts forward a roadmap for major FLOSS releases leading up to an
@@ -108,7 +108,7 @@ This list is about **60%** solid:
     * Life of a UI
     * Message Flow diagram
     * Game class method override diagram(s?)
-  * Release guide tested and tuned
+  * … Release guide tested and tuned
   * Review pass
 * … Error handling
   * ✓ Include client username in server connection debug info
