@@ -1,5 +1,19 @@
 Revision history for MUGS
 
+0.1.1  *WIP*
+  [Docs]
+  - Roadmap
+    * Fill in and tweak details
+    * Clarify 0.2 versus 0.3 plans
+    * Update for work done
+  - Fixes
+    * Minor fixes to several reviewed DDs
+    * Add `Terminal::Print` to `built-with` list
+  - New
+    * Messaging and Communication problem statement
+    * 0.1.1 release announcement
+
+
 0.1.0  2021-03-21
   [Docs]
   - Roadmap
