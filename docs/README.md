@@ -5,9 +5,11 @@
 
 # QUICK START
 
-Just want to get started in a hurry?
+Just want to get started in a hurry?  Pick one of the goals below:
 
 * [Install MUGS and play a simple game](howto/install-mugs.md)
+* [Port an existing game to MUGS](howto/port-a-game.md)
+* [Create a new UI](howto/create-a-ui.md)
 
 
 # Main Docs
