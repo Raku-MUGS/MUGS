@@ -39,6 +39,12 @@ The design docs can be split into several categories:
 * [Queuing Architecture](queuing-architecture.dot.svg)
 
 
+# Life of a ...
+
+* [Life of a UI](life-of-a-ui.md)  **NEEDS UPDATE**
+* [Life of a Request](life-of-a-request.md)  **NEEDS UPDATE**
+
+
 # Ruminations
 
 * [Supporting "Bullet Hell" Games](bullet-hell.md)
