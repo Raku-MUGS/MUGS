@@ -19,6 +19,7 @@ The design docs can be split into several categories:
 * [Coding Standards](coding-standards.md)
 * [Architecture Sketch](architecture.md)
 * [Repository Layout](repo-layout.md)
+* [Game Classes](game-classes.md)
 * [Built With](built-with.md)
 
 
