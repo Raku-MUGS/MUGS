@@ -38,6 +38,7 @@ The design docs can be split into several categories:
 
 # Ruminations
 
+* [Supporting "Bullet Hell" Games](bullet-hell.md)
 * [Sessions and Identities](sessions.md) **WIP**
 * [Caches and Invalidation](caches.md) **NYI**
 * [Turns, Rounds, Matches](turns.md) **NYI**
