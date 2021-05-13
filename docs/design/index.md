@@ -1,6 +1,6 @@
 % MUGS Design Documents
 
-*Reviewed 2021-03-28 by japhb*
+*Reviewed 2021-05-12 by japhb*
 
 **NOTE: If you would like to contribute to MUGS, please read and follow the
 [Coding Standards](coding-standards.md) before sending your pull request.**
@@ -24,7 +24,6 @@ The design docs can be split into several categories:
 
 # Details
 
-* [Release Guide](release-guide.md)
 * [Concurrency Design](concurrency.md)
 * [Lifecycles](lifecycles.md) **INCOMPLETE**
 * [Error-Handling Principles](error-handling.md) **WIP**
