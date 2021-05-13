@@ -25,6 +25,7 @@ The design docs can be split into several categories:
 # Details
 
 * [Concurrency Design](concurrency.md)
+* [Logo Ideas](logo.md)
 * [Lifecycles](lifecycles.md) **INCOMPLETE**
 * [Error-Handling Principles](error-handling.md) **WIP**
 * [Chain of Identity Rights](chain-of-rights.md) **NYI**
