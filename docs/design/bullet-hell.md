@@ -104,9 +104,9 @@ Data included with every update:
 
 For transports that bucket different types of object changes:
 
-* # spawned this update
-* # updated this update
-* # expired this update
+* Count spawned this update
+* Count updated this update
+* Count expired this update
 
 
 # Transport Efficiency

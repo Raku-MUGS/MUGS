@@ -15,6 +15,7 @@ more about each of these.
 
 # Other Languages
 
+* [CBOR](https://cbor.io/)
 * [JSON](https://www.json.org/json-en.html)
 * [YAML](https://yaml.org/)
 * [Markdown](https://en.wikipedia.org/wiki/Markdown)
