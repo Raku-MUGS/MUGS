@@ -9,11 +9,15 @@ Revision history for MUGS
     * Add Installing MUGS guide
     * Add WIP port-a-game and create-a-ui guides
   - Design
+    * Add CBOR to "Built With" doc
     * Add two "Life of a ..." docs from local tree (both need updates)
     * Add Game Classes orientation doc
     * Add Data Validation design doc
     * Add Supporting "Bullet Hell" Games rumination doc
     * Add Logo Ideas historical doc
+  - Announce
+    * Add 0.1.2 release announcement
+
 
 0.1.1  2021-04-15
   [Docs]
