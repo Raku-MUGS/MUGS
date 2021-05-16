@@ -244,6 +244,10 @@ MUGS-UI-Pop                   # New UI repo root
 ├── Changes                   # (Hand-updated) record of version changes
 ├── dist.ini                  # mi6 config file
 ├── docs                      # Stub for docs tree
+├── .github
+│   └── workflows             # GitHub Workflows
+│       └── test.yml          # On-commit tests
+├── .gitignore                # Patterns for files to ignore in repo
 ├── lib
 │   └── MUGS                  # Main MUGS code libraries
 │       ├── App               # App implementations
