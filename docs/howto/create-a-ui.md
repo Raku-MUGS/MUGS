@@ -5,13 +5,14 @@
 
 There are actually two common cases here:
 
-1. Creating a plugin for an existing UI type for an existing game that doesn't
-   run in that UI yet; for example, adding a TUI plugin for a MUGS action game
-   that previously only worked in a graphical UI such as SDL or GTK+
+1. [Creating a game UI plugin](#creating-a-new-game-plugin-for-an-existing-ui)
+   for an *existing* UI type for an *existing* game that doesn't run in that UI
+   yet; for example, adding a TUI plugin for a MUGS action game that previously
+   only worked in a graphical UI such as SDL or GTK+
 
-2. Creating a new UI type that has never been used with MUGS before and a
-   driver app for players wanting to use that UI; for example, adding a Qt or
-   Win32 UI type
+2. [Creating a new UI type](#creating-a-new-ui-type) that has never been used
+   with MUGS before and a driver app for players wanting to use that UI; for
+   example, adding a Qt or Win32 UI type
 
 
 # Creating a New Game Plugin for an Existing UI
@@ -105,7 +106,7 @@ less satisfied with the current state, it's time to publish your new plugin:
 
 * If the existing game is *not* part of the MUGS core but the UI type *is*, you
   can offer your plugin as a separate module uploaded to zef/fez or CPAN.  Make
-  sure to depend on the MUGS UI module and the game implementation in your
+  sure to depend on both the MUGS UI module and the game implementation in your
   `META6` file.
 
 * If the UI type is *not* part of the MUGS core, consider submitting your new
@@ -123,7 +124,8 @@ That's it!  Now go tell `#mugs` on Freenode IRC about your new plugin.  :-)
 
 This is the path to take when you want to introduce support for an additional
 UI toolkit (such as Qt or Win32), or add a whole new interface paradigm to
-MUGS (such as VR display or multitouch tablet support).
+MUGS (such as VR display or multitouch tablet support).  For concreteness
+below, we'll walk through the creation of the actual MUGS-UI-Pop repo.
 
 
 ## Raku Support for the UI
@@ -133,6 +135,11 @@ API isn't available as a module (or module suite) that you can depend on,
 address that first -- creating MUGS-specific narrow bindings for a major
 toolkit API is *possible*, but probably a frustrating yak-shave.  Besides,
 making a general binding is much better for the overall Raku community.
+
+[Pop](https://gitlab.com/jjatria/pop) is a Raku-native game UI toolkit, and has
+built-in bindings for all of the [SDL](https://www.libsdl.org/) functionality
+it uses, so as long as we have the needed SDL libraries available it should
+Just Work.
 
 
 ## Getting Familiar with the UI API
@@ -144,6 +151,14 @@ in the new API before starting on the MUGS plugin.
 Web UIs can be supported via Cro (which is already a MUGS dependency), but if
 you plan to use a highly dynamic Javascript framework with it, you should get
 comfortable with that framework before trying to add MUGS support for it.
+
+Pop includes
+[module docs](https://gitlab.com/jjatria/pop/-/tree/master/doc) and
+[tutorial examples](https://gitlab.com/jjatria/pop/-/tree/master/examples)
+in the main repo, and there are additional repos with
+[mini games](https://gitlab.com/jjatria/pop-games) and a
+[full platformer](https://gitlab.com/jjatria/celeste-clone).
+There's enough there to get a good basic familiarity.
 
 
 ## Create a New UI Repo
@@ -158,28 +173,163 @@ these patterns:
 `MUGS-UI-<Bar>`
 : For any local *Bar* UI toolkit, such as `MUGS-UI-CLI` or `MUGS-UI-GTK`
 
-`mi6` will give you a decent starting point for this:
+The MUGS development tool `mugs-tool` can give you a starting point for this;
+here I'll use it to create the Pop UI repo:
 
 ```
-$ cd MUGS  # or wherever you keep your MUGS Git repos
-$ mi6 new MUGS::UI::Bar
-Successfully created MUGS-UI-Bar
-$ cd MUGS-UI-Bar
-$ git commit -m "Initial mi6 template"
-$ git branch -M main
-$ git status
+$ mugs-tool new-ui-type Pop --desc "Pop/SDL UI for MUGS, including App and game UIs"
+
+=== mi6 new "MUGS::UI::Pop"
+Successfully created MUGS-UI-Pop
+
+=== git commit -m "Initial mi6 template"
+[master (root-commit) 763c904] Initial mi6 template
+ 9 files changed, 356 insertions(+)
+ create mode 100644 .github/workflows/test.yml
+ create mode 100644 .gitignore
+ create mode 100644 Changes
+ create mode 100644 LICENSE
+ create mode 100644 META6.json
+ create mode 100644 README.md
+ create mode 100644 dist.ini
+ create mode 100644 lib/MUGS/UI/Pop.rakumod
+ create mode 100644 t/01-basic.rakutest
+
+=== git branch -M main
+
+=== Creating directories
+docs
+lib/MUGS/App
+lib/MUGS/UI/Pop
+lib/MUGS/UI/Pop/Game
+lib/MUGS/UI/Pop/Genre
+
+=== Adding MUGS-specific files
+bin/mugs-pop
+lib/MUGS/App/Pop.rakumod
+t/00-use.rakutest
+
+=== chmod "+x" "bin/mugs-pop"
+
+=== git add "bin/mugs-pop" "lib/MUGS/App/Pop.rakumod" "t/00-use.rakutest"
+
+=== git rm "t/01-basic.rakutest"
+rm 't/01-basic.rakutest'
+
+=== git commit -m "Add MUGS-specific files"
+[main 4250f38] Add MUGS-specific files
+ 4 files changed, 68 insertions(+), 6 deletions(-)
+ create mode 100755 bin/mugs-pop
+ create mode 100644 lib/MUGS/App/Pop.rakumod
+ create mode 100644 t/00-use.rakutest
+ delete mode 100644 t/01-basic.rakutest
+
+=== git status
 On branch main
 nothing to commit, working tree clean
+
+--> All commands executed successfully.
 ```
 
-Look around the initial tree, make any changes to your personal preferences
-(or emulate the first few commits of new MUGS core UI repos), and commit them
-so you're back at a clean `git status` for the next step.
+
+## Review Skeleton
+
+Take a look around the newly generated tree and get acquainted with the
+contents.  Here's a quick overview:
+
+```
+MUGS-UI-Pop                   # New UI repo root
+├── bin                       # Minimal launcher scripts
+│   └── mugs-pop              # Launcher script for Pop UI
+├── Changes                   # (Hand-updated) record of version changes
+├── dist.ini                  # mi6 config file
+├── docs                      # Stub for docs tree
+├── lib
+│   └── MUGS                  # Main MUGS code libraries
+│       ├── App               # App implementations
+│       │   └── Pop.rakumod   # Pop UI app
+│       └── UI                # Game UIs
+│           ├── Pop.rakumod   # Base class for all Pop game UIs
+│           └── Pop
+│               ├── Game      # Game-specific UI plugins
+│               └── Genre     # Genre-shared UI code
+├── LICENSE                   # Artistic License 2.0
+├── META6.json                # Module metadata
+├── README.md                 # Auto-generated from MUGS::UI::Pop docs
+└── t                         # User-visible tests
+    └── 00-use.rakutest       # Use all modules and versioned dependencies
+```
+
+Almost all of the code resides in `lib/MUGS/`; here's the entire contents of
+the launcher script:
+
+```
+$ cat bin/mugs-pop
+#!/usr/bin/env raku
+use v6.d;
+BEGIN put 'Loading MUGS.' if $*OUT.t;
+use MUGS::App::Pop;
+```
+
+We'll take a look at the `Pop.rakumod` modules below.
+
+
+## Tweak the New UI Repo
+
+After you've created the initial skeleton, you can make any changes to your
+personal preferences (or emulate the first few commits of one of the MUGS core
+UI repos), and commit them so you're back at a clean `git status` for the next
+step.  Here's what I did for the Pop UI:
+
+```
+$ cd MUGS-UI-Pop
+
+$ # I use a doc auto-converter, so ignore its output
+$ cat >> .gitignore
+
+# Generated files
+/*.html
+/docs/*.html
+/docs/*/*.html
+/docs/*/*.dot.svg
+$ git add .gitignore
+$ git commit -m "Add generated files to .gitignore"
+
+$ # Add MUGS standard CODE_OF_CONDUCT and CONTRIBUTING docs
+$ cp ../MUGS-UI-CLI/CODE_OF_CONDUCT.md .
+$ cp ../MUGS-UI-CLI/docs/CONTRIBUTING.md docs/
+$ git add CODE_OF_CONDUCT.md docs/CONTRIBUTING.md
+$ git commit -m "Add MUGS standard CODE_OF_CONDUCT and CONTRIBUTING"
+```
+
+
+## What's Working?
+
+Time to try the stubbed out bits:
+
+```
+$ raku -Ilib bin/mugs-pop
+Loading MUGS.
+Usage:
+  bin/mugs-pop <game-type> -- Play a requested Pop game
+
+Common options for all commands:
+  --server=<Str>    Specify an external server (defaults to internal)
+  --universe=<Str>  Specify a local universe (internal server only)
+  --debug           Enable debug output
+```
+
+It wants the user to specify a `game-type` to play, but we haven't implemented
+any game plugins for this new UI yet, so that will have to wait.
 
 
 ## Stub the New UI
 
-Using `mi6 new` as above gives a very generic Raku module structure; it does
-not yet include the specific bits you'll need to make a new MUGS UI.
+Currently `mugs-tool` is rather primitive; using `mugs-tool new-ui-type` as
+above gives a very generic Raku module structure that does not yet include the
+specific bits you'll need to make a new MUGS UI.
 
 **WIP: MORE TO COME**
+
+
+XXXX: Dockerfiles?
