@@ -72,7 +72,7 @@ The MUGS development tool `mugs-tool` can give you a starting point for this;
 here I'll use it to create the Pop UI repo:
 
 ```
-$ mugs-tool new-ui-type Pop --desc "Pop/SDL UI for MUGS, including App and game UIs"
+$ mugs-tool new-ui-type Pop
 
 === mi6 new "MUGS::UI::Pop"
 Successfully created MUGS-UI-Pop
