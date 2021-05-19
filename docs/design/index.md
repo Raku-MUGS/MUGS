@@ -1,6 +1,6 @@
 % MUGS Design Documents
 
-*Reviewed 2021-05-12 by japhb*
+*Reviewed 2021-05-19 by japhb*
 
 **NOTE: If you would like to contribute to MUGS, please read and follow the
 [Coding Standards](coding-standards.md) before sending your pull request.**
@@ -45,9 +45,14 @@ The design docs can be split into several categories:
 * [Life of a Request](life-of-a-request.md)  **NEEDS UPDATE**
 
 
-# Ruminations
+# Fun With Numbers
 
 * [Supporting "Bullet Hell" Games](bullet-hell.md)
+* [Sources of Lag/Latency](lag-sources.md)
+
+
+# Ruminations
+
 * [Sessions and Identities](sessions.md) **WIP**
 * [Caches and Invalidation](caches.md) **NYI**
 * [Turns, Rounds, Matches](turns.md) **NYI**
