@@ -340,6 +340,20 @@ Next, stub a render callback and start the Pop main loop in `play-current-game`:
 ```
 
 
+## Create a Test Game Plugin
+
+[As seen earlier](#whats-working), a new MUGS UI needs a game plugin in order
+to activate, so next up is stubbing one (for more details on this, see
+[the other half of this doc](#creating-a-new-game-plugin-for-an-existing-ui)):
+
+```
+$ mugs-tool new-game-ui PFX Pop --/genre --desc="particle effect test"
+
+--> All commands executed successfully.
+```
+
+
+
 **WIP: MORE TO COME**
 
 
