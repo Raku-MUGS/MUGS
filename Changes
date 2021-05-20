@@ -1,5 +1,17 @@
 Revision history for MUGS
 
+0.1.3  *WIP*
+  [Doc Structure]
+  - Make sure every doc subdir has a README and index that links to it
+  - Add Design subsection for "Fun With Numbers"
+
+  [Design Docs]
+  - Add Sources of Lag/Latency doc (in Fun With Numbers)
+
+  [Howto Docs]
+  - More work on create-a-ui guide
+
+
 0.1.2  2021-05-14
   [Docs]
   - Add top-level docs/ README
