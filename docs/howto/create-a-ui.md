@@ -78,7 +78,7 @@ $ mugs-tool new-ui-type Pop
 Successfully created MUGS-UI-Pop
 
 === git commit -m "Initial mi6 template"
-[master (root-commit) 247a6a5] Initial mi6 template
+[master (root-commit) 8beb64d] Initial mi6 template
  9 files changed, 356 insertions(+)
  create mode 100644 .github/workflows/test.yml
  create mode 100644 .gitignore
@@ -99,21 +99,24 @@ lib/MUGS/UI/Pop
 lib/MUGS/UI/Pop/Game
 lib/MUGS/UI/Pop/Genre
 
-=== Adding MUGS-specific files
+=== Adding/updating MUGS-specific files
 bin/mugs-pop
 lib/MUGS/App/Pop.rakumod
+lib/MUGS/UI/Pop.rakumod
 t/00-use.rakutest
 
 === chmod "+x" "bin/mugs-pop"
 
-=== git add "bin/mugs-pop" "lib/MUGS/App/Pop.rakumod" "t/00-use.rakutest"
+=== mi6 build
+
+=== git add "bin/mugs-pop" "lib/MUGS/App/Pop.rakumod" "lib/MUGS/UI/Pop.rakumod" "t/00-use.rakutest" "META6.json"
 
 === git rm "t/01-basic.rakutest"
 rm 't/01-basic.rakutest'
 
-=== git commit -m "Add MUGS-specific files"
-[main 0c5ec0e] Add MUGS-specific files
- 4 files changed, 77 insertions(+), 6 deletions(-)
+=== git commit -m "Add MUGS-specific files and tweaks"
+[main cc088c4] Add MUGS-specific files and tweaks
+ 5 files changed, 108 insertions(+), 8 deletions(-)
  create mode 100755 bin/mugs-pop
  create mode 100644 lib/MUGS/App/Pop.rakumod
  create mode 100644 t/00-use.rakutest
@@ -244,7 +247,7 @@ lines marked with `# XXXX:`
 ```raku
 # ABSTRACT: Core logic to set up and run a Pop game
 
-# XXXX: use Pop app module here
+# XXXX: use Pop essential app modules here
 
 use MUGS::Core;
 use MUGS::App::LocalUI;
@@ -255,10 +258,24 @@ use MUGS::UI::Pop;
 %PROCESS::SUB-MAIN-OPTS = :named-anywhere;
 
 
-#| Pop App
+#| Pop app
 class MUGS::App::Pop is MUGS::App::LocalUI {
+    has MUGS::UI::Pop::Game $.current-game;
+    # XXXX: Add additional app-wide state attributes here
 
     method ui-type() { 'Pop' }
+
+    #| Initialize the overall MUGS client app
+    method initialize() {
+        callsame;
+        # XXXX: Extend to initialize toolkit and Pop-specific globals
+    }
+
+    #| Shut down the overall MUGS client app (as cleanly as possible)
+    method shutdown() {
+        # XXXX: Extend to stop Pop
+        callsame;
+    }
 
     #| Connect to server and authenticate as a valid user
     method ensure-authenticated-session(Str $server, Str $universe) {
@@ -269,9 +286,15 @@ class MUGS::App::Pop is MUGS::App::LocalUI {
         await $.session.authenticate(:$username, :$password);
     }
 
+    #| Create and initialize a new game UI for a given game type and client
+    method launch-game-ui(Str:D :$game-type, MUGS::Client::Game:D :$client, *%ui-opts) {
+        $!current-game = callsame;
+    }
+
     #| Start actively playing current game UI
     method play-current-game() {
-        # XXXX: Enter Pop main loop here
+        # XXXX: Enter Pop main loop here, or (by default) hand to game UI
+        $!current-game.main-loop;
     }
 }
 
@@ -312,7 +335,7 @@ use Pop::Graphics;
 Second, override the `initialize` and `shutdown` methods to add handling of the
 Pop window.  Since the `Pop` object is a self-bootstrapping singleton object,
 `initialize` can call `Pop.new` without storing the result, and for now at
-least there's no app-global attributes needed.
+least there's no additional app-global attributes needed.
 
 ```raku
     #| Initialize the overall MUGS client app
@@ -329,14 +352,15 @@ least there's no app-global attributes needed.
     }
 ```
 
-Next, stub a render callback and start the Pop main loop in `play-current-game`:
+By default, the app can create a single game UI (in `launch-game-ui`), and
+delegates rendering to that game UI's main loop (in `play-current-game`).  That
+will work fine for now, so commit the changes so far:
 
-```raku
-    #| Start actively playing current game UI
-    method play-current-game() {
-        Pop.render: { Pop::Graphics.clear }
-        Pop.run;
-    }
+```
+$ git add lib/MUGS/App/Pop.rakumod
+$ gm "Initialize and shutdown Pop toolkit in App"
+[main 48f4157] Initialize and shutdown Pop toolkit in App
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 ```
 
 
