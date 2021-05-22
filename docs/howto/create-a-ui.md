@@ -621,6 +621,33 @@ nothing to commit, working tree clean
 ```
 
 
+## Listen to Server Messages
+
+Most games that aren't solely turn-based solitaire games will need to listen
+for asynchronous server messages, such as push updates and game-wide events.
+To listen for these, add a simple `handle-server-message` method:
+
+```raku
+    method handle-server-message($message) {
+        given $message.type {
+            when 'game-update' {
+                $.client.validate-and-save-update($message);
+            }
+            when 'game-event'  {
+                self.handle-game-event($message);
+            }
+        }
+    }
+
+    method handle-game-event($message) {
+    }
+```
+
+In this case, `game-update` messages are passed back to the Client layer -- via
+the `$.client` attribute that all game UIs inherit -- for validation and
+queuing, while game-wide events currently do nothing.
+
+
 ## Display Initial Game State
 
 Write enough display logic to show the initial game state, at least at a very
@@ -628,7 +655,73 @@ basic level.  For example, you might display a checkerboard with pieces in the
 appropriate positions for Chess or Draughts, or display the player's hand for
 a card game.
 
-**XXXX: Show example code**
+For the PFX example, all of the particle effect data is being passed in the
+`game-update` messages that are now being queued in the Client layer; the next
+step is to add a `render-updates` method to pull the latest update from the
+queue and render it:
+
+```raku
+    method render-updates() {
+        my $update;
+        $.client.update-lock.protect: {
+            my $queue := $.client.update-queue;
+            $queue.shift while $queue.elems > 1;
+            $update = $queue[0];
+        }
+
+        # Don't show anything if no data to work with
+        return unless $update;
+
+        Pop::Graphics.clear;
+        self.render-particles($update<validated>);
+    }
+```
+
+The first part simply makes sure that we don't get thread races while modifying
+the queue, dropping any update except the most recent.  The last part clears
+the window and passes the validated update data to `render-particles`, filled
+in next:
+
+```raku
+    method render-particles($validated) {
+        my num $w  = Pop::Graphics.width;
+        my num $h  = Pop::Graphics.height;
+        my num $cx = $w / 2e0;
+        my num $cy = $h / 2e0;
+        my num $r  = min $cx, $cy;
+
+        for @($validated<effects>) -> $effect {
+            my $p = $effect<particles>;
+            for ^($p.elems div 7) -> int $index {
+                my int $base = $index * 7;
+                my num $x    = $p[$base];
+                my num $y    = $p[$base + 1];
+
+                # Scale, flip Y dimension, and recenter to current particle area
+                my num $px =  $x * $r + $cx;
+                my num $py = -$y * $r + $cy;
+
+                Pop::Graphics.point: ($px, $py), (^256).pick xx 3;
+            }
+        }
+    }
+```
+
+The first part of `render-particles` finds the center of the `Pop::Graphics` area,
+and thus the scaling "radius" to use when drawing particles.  The second part
+loops over all effects in the update, and for each particle in each effect pulls
+location information from the packed dataset, converts the virtual coordinates to
+`Pop::Graphics` coordinates, and draws a randomly-colored point there.
+
+In order to see the effects of these additions, update the render callback in
+the `main-loop` method:
+
+```raku
+        Pop.render: { self.render-updates };
+```
+
+Running this using `mugs-pop pfx` again shows the particle effect animation,
+but still the player can't do anything beyond quit.
 
 
 ## Hook Up a Trivial Action
@@ -640,7 +733,22 @@ up the UI's input to trigger an action that you send through the existing client
 to the server, are able to process the server's response, and can display the
 changed game state.
 
-**XXXX: Show example code**
+In the PFX case, the Client layer already knows how to toggle pause with a
+server request, so that's first up.  Thankfully, this is as easy as expanding
+the `key-released` callback in `main-loop`:
+
+```raku
+        Pop.key-released: -> $key, $scancode {
+            given $key {
+                when 'q'|'ESCAPE' { await $.client.leave; Pop.stop }
+                when 'SPACE'      { $.client.send-pause-request }
+            }
+        };
+```
+
+At the same time, I've added the `q` key as an alternative to the escape key
+to exit; it's trivial to check both at the same time.  One last run with
+`mugs-pop pfx` shows that both new keys work as intended.
 
 
 ## Lather, Rinse, Repeat
