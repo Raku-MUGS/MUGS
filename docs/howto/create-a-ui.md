@@ -1,6 +1,6 @@
 % Creating a New MUGS UI
 
-**WIP as of 2021-05-16**
+*Reviewed 2021-05-21 by japhb*
 
 
 There are actually two common cases here:
