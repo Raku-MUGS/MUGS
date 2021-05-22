@@ -376,17 +376,148 @@ $ mugs-tool new-game-ui PFX Pop --/genre --desc="particle effect test"
 --> All commands executed successfully.
 ```
 
+That creates a simple skeleton in `lib/MUGS/UI/Pop/Game/PFX.rakumod`:
+
+```raku
+# ABSTRACT: Pop interface for particle effect test games
+
+use MUGS::Core;
+use MUGS::Client::Game::PFX;
+use MUGS::UI::Pop;
 
 
-**WIP: MORE TO COME**
+#| Pop interface for a particle effect test game
+class MUGS::UI::Pop::Game::PFX is MUGS::UI::Pop::Game {
+    method game-type() { 'pfx' }
+}
 
 
-XXXX: Dockerfiles?
+# Register this class as a valid game UI
+MUGS::UI::Pop::Game::PFX.register;
+```
+
+However, this skeleton is *too* skeletal to actually function:
+
+```
+$ raku -Ilib bin/mugs-pop pfx
+Loading MUGS.
+===SORRY!=== Error while compiling .../MUGS/MUGS-UI-Pop/bin/mugs-pop
+No such method 'main-loop' for invocant of type
+'MUGS::UI::Pop::Game::PFX'
+at .../MUGS/MUGS-UI-Pop/bin/mugs-pop:4
+```
+
+Filling in simple functionality (again, the reasoning for all of this, and the
+details of what these new methods do will be described in
+[the other half of this doc](#creating-a-new-game-plugin-for-an-existing-ui)):
+
+```raku
+# ABSTRACT: Pop interface for particle effect test games
+
+use Pop;
+
+use MUGS::Core;
+use MUGS::Client::Game::PFX;
+use MUGS::UI::Pop;
+
+
+#| Pop interface for a particle effect test game
+class MUGS::UI::Pop::Game::PFX is MUGS::UI::Pop::Game {
+    method game-type() { 'pfx' }
+
+    method handle-server-message($message) {
+        given $message.type {
+            when 'game-update' {
+                $.client.validate-and-save-update($message);
+            }
+            when 'game-event'  {
+                self.handle-game-event($message);
+            }
+        }
+    }
+
+    method handle-game-event($message) {
+    }
+
+    method main-loop(::?CLASS:D:) {
+        Pop.key-released: -> $key, $scancode {
+            given $key {
+                when 'q'|'ESCAPE' { await $.client.leave; Pop.stop }
+                when 'SPACE'      { $.client.send-pause-request }
+            }
+        };
+
+        Pop.render: { self.render-updates };
+
+        Pop.run;
+    }
+
+    method render-updates() {
+        my $update;
+        $.client.update-lock.protect: {
+            my $queue := $.client.update-queue;
+            $queue.shift while $queue.elems > 1;
+            $update = $queue[0];
+        }
+
+        # Don't show anything if no data to work with
+        return unless $update;
+
+        Pop::Graphics.clear;
+        self.render-particles($update<validated>);
+    }
+
+    method render-particles($validated) {
+        my num $w  = Pop::Graphics.width;
+        my num $h  = Pop::Graphics.height;
+        my num $cx = $w / 2e0;
+        my num $cy = $h / 2e0;
+        my num $r  = min $cx, $cy;
+
+        for @($validated<effects>) -> $effect {
+            my $p = $effect<particles>;
+            for ^($p.elems div 7) -> int $index {
+                my int $base = $index * 7;
+                my num $x    = $p[$base];
+                my num $y    = $p[$base + 1];
+
+                # Scale, flip Y dimension, and recenter to current particle area
+                my num $px =  $x * $r + $cx;
+                my num $py = -$y * $r + $cy;
+
+                Pop::Graphics.point: ($px, $py), (^256).pick xx 3;
+            }
+        }
+    }
+}
+
+
+# Register this class as a valid game UI
+MUGS::UI::Pop::Game::PFX.register;
+```
+
+Now running it Just Works:
+
+```
+$ raku -Ilib bin/mugs-pop pfx
+Loading MUGS.
+```
+
+A blank window should appear with a (very) simple particle effect in it.  The
+animation won't be silky smooth as there is no keyframe interpolation yet, and
+the particles are colored randomly so will appear to "twinkle", but as a proof
+of concept it's fine.  Press the spacebar to toggle pause, or the Q or escape
+keys to quit.  (You may see some debug messages when the process exits; those
+are coming from the underlying Pop toolkit.)
 
 
 # Creating a New Game Plugin for an Existing UI
 
-This is the simpler case of course; the existing MUGS UI and its app are
+Whether you have just [created a new UI type](#creating-a-new-ui-type) as
+described in the first part of this doc, or are working with an existing UI
+type, at some point you'll want to add new game plugins for that UI.
+
+This is the simpler case of course; the existing MUGS UI type and its app are
 already known to work for other games, limiting the scope of bug hunts.
 Furthemore, the existing game's client and server modules are already known to
 work for other UIs, assuming this isn't the very first UI being created for the
@@ -428,7 +559,66 @@ and lets you join the proper game type with it.  Even if the only thing it can
 do is put up a message that it's alive and display the GameID the client has
 joined, that's enough to start.
 
-**XXXX: Explain how to stub a plugin**
+Let's start over with the PFX example used in the
+[Creating a New UI Type](#creating-a-new-ui-type) section, except with more
+detail.  Go ahead and move aside or delete the PFX module if you'd already made
+one, and then regenerate the skeleton using `mugs-tool new-game-ui`:
+
+```
+$ rm lib/MUGS/UI/Pop/Game/PFX.rakumod
+$ mugs-tool new-game-ui PFX Pop --/genre --desc="particle effect test"
+
+--> All commands executed successfully.
+```
+
+It's going to need access to Pop functionality, so load the required modules at
+the top:
+
+```raku
+use Pop;
+use Pop::Graphics;
+```
+
+The game plugin won't function without a `main-loop` tailored to the UI
+toolkit, so stub one:
+
+```raku
+    method main-loop(::?CLASS:D:) {
+        Pop.key-released: -> $key, $scancode {
+            if $key eq 'ESCAPE' { await $.client.leave; Pop.stop }
+        };
+
+        Pop.render: { Pop::Graphics.clear };
+
+        Pop.run;
+    }
+```
+
+This is pretty much the minimum to set up a Pop app that behaves reasonably.
+It clears the window on each render opportunity, and listens for the escape key
+to know when to leave the app; otherwise it just lets the Pop-internal main
+loop run.
+
+With the new method in place, running this plugin presents a blank window from
+which you can press `ESCAPE` to exit:
+
+```
+$ raku -Ilib bin/mugs-pop pfx
+Loading MUGS.
+```
+
+Time to commit the stub and make sure everything's clean so far:
+
+```
+$ git add lib/MUGS/UI/Pop/Game/PFX.rakumod
+$ gm "Stub in minimal PFX game plugin"
+[main 6e48b1b] Stub in minimal PFX game plugin
+ 1 file changed, 28 insertions(+)
+ create mode 100644 lib/MUGS/UI/Pop/Game/PFX.rakumod
+$ git status
+On branch main
+nothing to commit, working tree clean
+```
 
 
 ## Display Initial Game State
