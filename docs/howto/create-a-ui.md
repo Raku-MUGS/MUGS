@@ -784,4 +784,4 @@ less satisfied with the current state, it's time to publish your new plugin:
 
 ## Sing, Rejoice, and Announce
 
-That's it!  Now go tell `#mugs` on Freenode IRC about your new plugin.  :-)
+That's it!  Now go tell `#mugs` on Libera.Chat IRC about your new plugin.  :-)

@@ -55,7 +55,7 @@ known to be unneeded by MUGS and also missing on some systems.
 ## Still Having Trouble?
 
 We'd like to help!  Visit the `#mugs` channel on
-[Freenode IRC](https://webchat.freenode.net/)
+[Libera.Chat IRC](https://libera.chat/guides/clients)
 to chat with other MUGS users and developers, or file an
 [issue in the MUGS repo](https://github.com/Raku-MUGS/MUGS/issues),
 and we'll try to get your problem fixed (and document it here for others who

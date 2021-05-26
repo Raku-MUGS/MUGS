@@ -88,12 +88,12 @@ In all seriousness, check out the [CONTRIBUTING doc](docs/CONTRIBUTING.md) (iden
 
 The MUGS project has a matching GitHub org, [Raku-MUGS](https://github.com/Raku-MUGS), where you will find all related repositories and issue trackers, as well as formal meta-discussion.
 
-More informal discussion can be found on IRC in [Freenode #mugs](ircs://chat.freenode.net:6697/mugs).
+More informal discussion can be found on IRC in [Libera.Chat #mugs](ircs://irc.libera.chat:6697/mugs).
 
 AUTHOR
 ======
 
-Geoffrey Broadwell <gjb@sonic.net> (japhb on GitHub and Freenode)
+Geoffrey Broadwell <gjb@sonic.net> (japhb on GitHub and Libera.Chat)
 
 COPYRIGHT AND LICENSE
 =====================

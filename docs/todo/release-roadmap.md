@@ -41,7 +41,7 @@ This list is **COMPLETE!**
     * ✓ Multi-round Snowman
 * ✓ Organizational
   * ✓ Create Raku-MUGS GitHub org
-  * ✓ Create 'mugs' Freenode group and #mugs IRC channel
+  * ✓ Create 'mugs' ~~Freenode~~ group and #mugs IRC channel (UPDATE: MOVED TO Libera.Chat !)
 * ✓ Packaging
   * ✓ File extensions changed to current Raku standards
   * ✓ Support for plugging UIs and games

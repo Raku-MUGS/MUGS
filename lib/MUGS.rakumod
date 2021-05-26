@@ -106,12 +106,12 @@ L<Raku-MUGS|https://github.com/Raku-MUGS>, where you will find all related
 repositories and issue trackers, as well as formal meta-discussion.
 
 More informal discussion can be found on IRC in
-L<Freenode #mugs|ircs://chat.freenode.net:6697/mugs>.
+L<Libera.Chat #mugs|ircs://irc.libera.chat:6697/mugs>.
 
 
 =head1 AUTHOR
 
-Geoffrey Broadwell <gjb@sonic.net> (japhb on GitHub and Freenode)
+Geoffrey Broadwell <gjb@sonic.net> (japhb on GitHub and Libera.Chat)
 
 
 =head1 COPYRIGHT AND LICENSE
