@@ -1,6 +1,9 @@
 Revision history for MUGS
 
 0.1.3  *WIP*
+  [Contacting us]
+  - Move official IRC support channel from Freenode to Libera.Chat
+
   [Doc Structure]
   - Make sure every doc subdir has a README and index that links to it
   - Add Design subsection for "Fun With Numbers"
@@ -9,7 +12,10 @@ Revision history for MUGS
   - Add Sources of Lag/Latency doc (in Fun With Numbers)
 
   [Howto Docs]
-  - More work on create-a-ui guide
+  - More work on create-a-ui guide, including concrete examples building Pop UI
+
+  [Testing]
+  - Run GitHub test workflow against HEAD versions of other MUGS repos
 
 
 0.1.2  2021-05-14
