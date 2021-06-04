@@ -26,6 +26,16 @@ jobs:
           raku-version: ${{ matrix.raku-version }}
       - name: Update Zef Indices
         run: zef update
+      - name: Install HEAD MUGS-Core
+        run: zef install --/test https://github.com/Raku-MUGS/MUGS-Core/archive/main.zip
+      - name: Install HEAD MUGS-Games
+        run: zef install --/test https://github.com/Raku-MUGS/MUGS-Games/archive/main.zip
+      - name: Install HEAD MUGS-UI-CLI
+        run: zef install --/test https://github.com/Raku-MUGS/MUGS-UI-CLI/archive/main.zip
+      - name: Install HEAD MUGS-UI-TUI
+        run: zef install --/test https://github.com/Raku-MUGS/MUGS-UI-TUI/archive/main.zip
+      - name: Install HEAD MUGS-UI-WebSimple
+        run: zef install --/test https://github.com/Raku-MUGS/MUGS-UI-WebSimple/archive/main.zip
       - name: Install Dependencies
         run: zef install --/test --test-depends --deps-only .
       - name: Install App::Prove6
