@@ -1,0 +1,76 @@
+digraph {
+    ranksep=0.2
+
+    "Client::Game.send-nop" -> "Client::Game.action-promise"
+    "Client::Game.action-promise" -> "Message::Request.on-success" [style=dotted]
+    "Client::Game.action-promise" -> "Message::Request.on-failure" [style=dotted]
+    "Client::Game.action-promise" -> "Client::Session.send-in-game-request"
+    "Client::Game.send-action" -> "Client::Session.send-in-game-request"
+
+    "Client::Session.send-in-game-request" -> "Client::Session.send-request"
+    "Client::Session.send-request" -> "Client::Connection::Supplier.send-to-server"
+    "Client::Session.send-request" -> "Client::Connection::WebSocket.send-to-server"
+
+    subgraph cluster_to_in_memory_server {
+        color="forestgreen"
+        fontcolor="forestgreen"
+        label="In-Memory Server"
+
+        "Client::Connection::Supplier.send-to-server" -> "Server::Connection::Supplier.send-to-server" -> "Server::Connection::Supplier.from-client-supply"
+    }
+
+    subgraph cluster_to_remote_server {
+        color="dodgerblue"
+        fontcolor="dodgerblue"
+        label="Remote Server"
+
+        "Client::Connection::WebSocket.send-to-server" -> "Cro::WebSocket::Client::Connection.send" -> "Server::Connection::WebSocket.from-client-supply"
+    }
+
+    "Server::Connection::Supplier.from-client-supply" -> "Server::Session.handle-client-message"
+    "Server::Connection::WebSocket.from-client-supply" -> "Server::Session.handle-client-message"
+
+    "Server::Session.handle-client-message" -> "Server::Session.error"
+
+    "Server::Session.handle-client-message" -> "Server::Session.auth-error" -> "Server::Session.error"
+    "Server::Session.handle-client-message" -> "Server.authenticate-user" -> "Server::Session.success"
+    "Server.authenticate-user" -> "Server::Session.auth-error"
+
+    "Server::Session.handle-client-message" -> "Server::Game.process-action" -> "Server::Session.success"
+    "Server::Session.handle-client-message" -> "Server.new-game" -> "Server::Session.success"
+    "Server::Session.handle-client-message" -> "Server.join-game" -> "Server::Session.success"
+    "Server::Session.handle-client-message" -> "Server.leave-game" -> "Server::Session.success"
+
+    "Server::Session.error" -> "Server::Connection::Supplier.send-to-client"
+    "Server::Session.success" -> "Server::Connection::Supplier.send-to-client"
+    "Server::Session.error" -> "Server::Connection::WebSocket.send-to-client"
+    "Server::Session.success" -> "Server::Connection::WebSocket.send-to-client"
+
+    subgraph cluster_from_in_memory_server {
+        color="forestgreen"
+        fontcolor="forestgreen"
+        label="In-Memory Server"
+
+        "Server::Connection::Supplier.send-to-client" -> "Client::Connection::Supplier.send-to-client" -> "Client::Connection::Supplier.from-server-supply"
+    }
+
+    subgraph cluster_from_remote_server {
+        color="dodgerblue"
+        fontcolor="dodgerblue"
+        label="Remote Server"
+
+        "Server::Connection::WebSocket.send-to-client" -> "Server::Connection::WebSocket.from-server" -> "Client::Connection::WebSocket.from-server-supply"
+    }
+
+    "Client::Connection::Supplier.from-server-supply" -> "Client::Session.handle-server-message"
+    "Client::Connection::WebSocket.from-server-supply" -> "Client::Session.handle-server-message"
+
+    "Client::Session.handle-server-message" -> "Message::Request.on-success" [label=Success]
+    "Client::Session.handle-server-message" -> "(translate error code to exception)" [label=error]
+    "(translate error code to exception)" -> "Message::Request.on-failure"
+    "Client::Session.handle-server-message" -> "Client::Game.handle-server-message" [label=push]
+    "Client::Game.handle-server-message" -> "Client::Game.canonify-response ?" -> "Client::Game.on-push"
+
+    "Message::Request.on-success" -> "Client::Game.canonify-response" -> "(game-specific on-success)" -> "(action promise KEPT)"
+    "Message::Request.on-failure" -> "(action promise BROKEN)"
+}
