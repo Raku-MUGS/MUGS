@@ -10,6 +10,12 @@ Revision history for MUGS
 
   [Design Docs]
   - Add Sources of Lag/Latency doc (in Fun With Numbers)
+  - Add various WIP and speculative design docs:
+    * Requirements doc for logging performance
+    * Requirements for state storage
+    * Draft message flow diagram
+    * Tutorial for porting a solo game
+    * Stub for tutorial for porting a multiplayer game
 
   [Fixes]
   - Update v0.1.2.md to reflect JSON::Fast PR merge
