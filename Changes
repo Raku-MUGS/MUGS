@@ -1,6 +1,6 @@
 Revision history for MUGS
 
-0.1.3  *WIP*
+{{$NEXT}}
   [Contacting us]
   - Move official IRC support channel from Freenode to Libera.Chat
 
@@ -11,8 +11,15 @@ Revision history for MUGS
   [Design Docs]
   - Add Sources of Lag/Latency doc (in Fun With Numbers)
 
+  [Fixes]
+  - Update v0.1.2.md to reflect JSON::Fast PR merge
+
   [Howto Docs]
-  - More work on create-a-ui guide, including concrete examples building Pop UI
+  - Significantly more work on create-a-ui guide, including concrete
+    examples building Pop UI
+
+  [Packaging]
+  - Use mi6 UploadToZef for releases
 
   [Testing]
   - Run GitHub test workflow against HEAD versions of other MUGS repos
