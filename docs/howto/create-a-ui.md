@@ -287,7 +287,7 @@ class MUGS::App::Pop is MUGS::App::LocalUI {
     }
 
     #| Create and initialize a new game UI for a given game type and client
-    method launch-game-ui(Str:D :$game-type, MUGS::Client::Game:D :$client, *%ui-opts) {
+    method launch-game-ui(Str:D :$game-type, MUGS::Client::Game:D :$client) {
         $!current-game = callsame;
     }
 
