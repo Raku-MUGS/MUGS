@@ -116,7 +116,7 @@ Geoffrey Broadwell <gjb@sonic.net> (japhb on GitHub and Libera.Chat)
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2021 Geoffrey Broadwell
+Copyright 2021-2024 Geoffrey Broadwell
 
 MUGS is free software; you can redistribute it and/or modify it under the
 Artistic License 2.0.
