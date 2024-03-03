@@ -1,6 +1,13 @@
 Revision history for MUGS
 
 {{$NEXT}}
+  [Docs]
+  - Add v0.1.3 release announcement and draft of v0.1.4 announcement
+
+  [Packaging]
+  - Update copyright year range in README
+  - Update MUGS dependencies to 0.1.4
+
 
 0.1.3  2023-06-04T13:40:01-07:00
   [Contacting us]
