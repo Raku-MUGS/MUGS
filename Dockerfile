@@ -1,15 +1,16 @@
 ARG mugs_version=latest
-FROM mugs-ui-cli:$mugs_version
+FROM mugs-ui-websimple:$mugs_version
 ARG mugs_version
 
 LABEL org.opencontainers.image.source=https://github.com/Raku-MUGS/MUGS
 
-USER root:root
-
-COPY . /home/raku
-
-RUN zef install . --/test
-
 USER raku:raku
 
-ENTRYPOINT []
+WORKDIR /home/raku/MUGS/MUGS
+COPY . .
+
+RUN zef install --deps-only . \
+ && zef install . --/test \
+ && rm -rf /home/raku/.zef $(find /tmp/.zef -maxdepth 1 -user raku)
+
+CMD []
